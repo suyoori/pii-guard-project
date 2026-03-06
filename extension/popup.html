@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>AI Guard: SafeInput</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+
+      body {
+        width: 320px;
+        padding: 20px;
+        font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
+        color: #333;
+        background-color: #f4f7fe;
+        margin: 0;
+        /* 하단 고정을 위한 레이아웃 설정 추가 */
+        display: flex;
+        flex-direction: column;
+        min-height: 400px;
+      }
+
+      h3 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #00358e;
+        display: flex;
+        align-items: center;
+      }
+
+      .section {
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .domain-text {
+        font-weight: 700;
+        color: #0052cc;
+        font-size: 15px;
+        margin-top: 4px;
+      }
+
+      .btn {
+        background: linear-gradient(135deg, #0052cc, #00358e);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: 12px;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 6px rgba(0, 82, 204, 0.3);
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 82, 204, 0.4);
+      }
+
+      .host-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #4b5563;
+      }
+
+      #statusText {
+        font-size: 13px;
+        color: #059669;
+        margin-left: 10px;
+        font-weight: 500;
+      }
+
+      /* 새롭게 추가된 카피라이트 스타일 */
+      .copyright {
+        margin-top: auto;
+        text-align: center;
+        font-size: 11px;
+        color: #9ca3af;
+        padding-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="20px"
+        viewBox="0 0 24 24"
+        width="20px"
+        fill="#00358e"
+        style="margin-right: 8px"
+      >
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"
+        />
+      </svg>
+      AI Guard: SafeInput
+    </h3>
+
+    <div class="section">
+      <div style="font-size: 13px; color: #6b7280; font-weight: 500">
+        현재 접속 중인 사이트
+      </div>
+      <div id="currentDomain" class="domain-text">Loading...</div>
+      <div style="display: flex; align-items: center">
+        <button id="allowCurrentButton" class="btn">이 사이트 허용하기</button>
+        <span id="statusText"></span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div
+        style="
+          font-size: 14px;
+          font-weight: 700;
+          margin-bottom: 12px;
+          color: #1f2937;
+        "
+      >
+        허용된 사이트 목록
+      </div>
+      <div id="hostList"></div>
+    </div>
+
+    <div class="section" style="font-size: 14px; color: #4b5563">
+      <label
+        style="
+          display: flex;
+          align-items: center;
+          margin-bottom: 8px;
+          cursor: pointer;
+        "
+      >
+        <input
+          type="checkbox"
+          id="autoReplaceToggle"
+          style="margin-right: 8px; accent-color: #0052cc"
+        />
+        자동 마스킹 적용
+      </label>
+      <label style="display: flex; align-items: center; cursor: pointer">
+        <input
+          type="checkbox"
+          id="previewToggle"
+          style="margin-right: 8px; accent-color: #0052cc"
+        />
+        마스킹 미리보기
+      </label>
+    </div>
+
+    <div class="copyright">&copy; 2026 Ji. All rights reserved.</div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

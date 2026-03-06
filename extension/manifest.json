@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "PAI Guard: SafeInput",
+  "version": "1.0",
+  "description": "LLM 환경 개인정보 유출 및 인젝션 방지",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["http://localhost:8000/*"],
+  "icons": {
+    "128": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

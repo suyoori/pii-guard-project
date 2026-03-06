@@ -1,0 +1,22 @@
+# 보안 및 환경 변수
+.env
+secret.json
+
+# Python 및 FastAPI 관련 (가상환경, 캐시)
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.pytest_cache/
+
+# IDE (개발 도구) 설정 파일
+.vscode/
+.idea/
+
+# OS 생성 파일
+.DS_Store
+Thumbs.db
+
+# 로그 파일
+*.log
